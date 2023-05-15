@@ -1,7 +1,7 @@
-name: hello-world
+name: encorcing-signing
 on: pull_request
 jobs:
-  my-job:
+  check-signature:
     runs-on: ubuntu-latest
     steps:
       - name: enforce-signing
