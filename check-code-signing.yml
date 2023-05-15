@@ -1,0 +1,8 @@
+name: hello-world
+on: push
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: enforce-signing
+        run: echo "Encorcing logic here"
