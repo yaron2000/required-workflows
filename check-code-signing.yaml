@@ -4,10 +4,12 @@ jobs:
   check-signature:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
       - name: TruffleHog
         uses: trufflesecurity/trufflehog@main
         with:
-          path: $GITHUB_REPOSITORY
+          path: ./
           base: ${{ github.event.repository.default_branch }}
           head: HEAD
           extra_args: --debug --only-verified
