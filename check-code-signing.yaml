@@ -1,15 +1,13 @@
-name: encorcing-signing
+name: check-secrets
 on: pull_request
 jobs:
   check-signature:
     runs-on: ubuntu-latest
     steps:
-      - name: enforce-signing
-        run: echo "Encorcing logic here"
       - name: TruffleHog
         uses: trufflesecurity/trufflehog@main
         with:
-          path: ./
+          path: ${{ GITHUB_REPOSITORY }} 
           base: ${{ github.event.repository.default_branch }}
           head: HEAD
           extra_args: --debug --only-verified
