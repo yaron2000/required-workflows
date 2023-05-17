@@ -5,13 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-      - name: TruffleHog
-        uses: trufflesecurity/trufflehog@main
-        with:
-          path: ${{ github.repository }}
-          base: ${{ github.event.repository.default_branch }}
-          extra_args: --debug --only-verified
+        uses: actions/checkout@v2
+      - name: Trufflehog Actions Scan
+        uses: edplato/trufflehog-actions-scan@v0.9l-beta
+
         
 
 
