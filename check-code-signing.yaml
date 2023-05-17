@@ -6,6 +6,13 @@ jobs:
     steps:
       - name: enforce-signing
         run: echo "Encorcing logic here"
-      - name: Check Actions
-        uses: giner/check-actions@1476aa8d5fb9bd940f62d5660559d521b367e219
+      - name: TruffleHog
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: ${{ github.event.repository.default_branch }}
+          head: HEAD
+          extra_args: --debug --only-verified
+        
+
 
